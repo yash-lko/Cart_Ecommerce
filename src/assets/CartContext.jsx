@@ -7,7 +7,7 @@ export const CartContext = createContext();
 
 
 const initialState = {
-    cartItems: [],
+  cartItems: [],
 }
 
 const CartReducer = (state, action) => {
@@ -52,24 +52,24 @@ const CartReducer = (state, action) => {
 
 
 export const CartProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(CartReducer, initialState);
+  const [state, dispatch] = useReducer(CartReducer, initialState);
   const AddToCart = (product) => {
-  dispatch({ type: "Add_to_Cart", payload: product });
-  toast.success(`Product added to cart!`);
-};
- const RemoveItems = (product) => {
-  dispatch({ type: "RemoveItem", payload: product });
-  toast.error(`Product Removed!`);
-};
-    return (
-        <CartContext.Provider value={{
-            cartItems:state.cartItems,
-            AddToCart,
-            RemoveItems,
-        }}>
-            {children}
-        </CartContext.Provider>
-    )
+    dispatch({ type: "Add_to_Cart", payload: product });
+    toast.success(`Product added to cart!`);
+  };
+  const RemoveItems = (product) => {
+    dispatch({ type: "RemoveItem", payload: product });
+    toast.error(`Product Removed!`);
+  };
+  return (
+    <CartContext.Provider value={{
+      cartItems: state.cartItems,
+      AddToCart,
+      RemoveItems,
+    }}>
+      {children}
+    </CartContext.Provider>
+  )
 }
 
 

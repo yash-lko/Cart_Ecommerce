@@ -1,5 +1,4 @@
 import React from "react";
-import Homepage from "./Homepage";
 import Header from "./assets/Header";
 import ProductListing from "./ProductListing";
 import ProductProvider from "./ProductContext";
